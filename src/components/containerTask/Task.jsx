@@ -1,16 +1,16 @@
 import React from "react";
 import {
-  MdCheckBoxOutlineBlank,
-  MdOutlineCheckBox,
+  MdOutlineCircle,
+  MdCheckCircle,
   MdOutlineStarPurple500,
 } from "react-icons/md";
 
-const Task = () => {
+const Task = ({ taskName }) => {
   return (
-    <div className="bg-gray-500 px-2 flex justify-between items-center gap-3.5">
-      <MdCheckBoxOutlineBlank className="cursor-pointer" />
-      <h3 className="flex-1">minha tarefa</h3>
-      <MdOutlineStarPurple500 />
+    <div className="bg-stone-800 text-white py-1.5 px-2 flex justify-between items-center gap-3.5">
+      <MdOutlineCircle className="cursor-pointer text-2xl" />
+      <h3 className="flex-1 text-[18px] flex items-center">{taskName}</h3>
+      <MdOutlineStarPurple500 className="cursor-pointer text-2xl text-gray-400" />
     </div>
   );
 };

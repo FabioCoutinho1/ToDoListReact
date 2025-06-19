@@ -3,9 +3,9 @@ import { MdAdd } from "react-icons/md";
 
 const InputTasks = () => {
   return (
-    <form className="flex items-center bg-gray-500 text-white">
+    <form className="flex items-center bg-stone-800 text-white">
       <input
-        className="flex-1 px-3 py-1 border-none outline-none"
+        className="flex-1 px-3 text-2xl py-2 border-none outline-none"
         type="text"
         placeholder="Adicionar tarefa"
       />

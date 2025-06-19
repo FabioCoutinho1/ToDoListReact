@@ -1,1 +1,40 @@
-{ "tasks": [{ "id": "1", "task-name": "fazer comida", "checkend": false }] }
+{
+  "tasks": [
+    {
+      "id": "1",
+      "taskName": "fazer comida",
+      "checkend": false,
+      "favorit": false
+    },
+    {
+      "id": "2",
+      "taskName": "estudar React",
+      "checkend": true,
+      "favorit": true
+    },
+    {
+      "id": "3",
+      "taskName": "lavar a louça",
+      "checkend": false,
+      "favorit": false
+    },
+    {
+      "id": "4",
+      "taskName": "caminhar 30 minutos",
+      "checkend": true,
+      "favorit": false
+    },
+    {
+      "id": "5",
+      "taskName": "ler 10 páginas de um livro",
+      "checkend": false,
+      "favorit": true
+    },
+    {
+      "id": "6",
+      "taskName": "organizar arquivos do computador",
+      "checkend": true,
+      "favorit": false
+    }
+  ]
+}
