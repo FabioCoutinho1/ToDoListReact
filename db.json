@@ -37,26 +37,8 @@
       "favorit": false
     },
     {
-      "id": "fd60004d-8af0-47fa-a7fe-efc6f498cf58",
-      "taskName": "fazer comida",
-      "checkend": false,
-      "favorit": false
-    },
-    {
-      "id": "f3ad9114-d3a9-48be-93cf-c29f3e71c12f",
-      "taskName": "jogar bola",
-      "checkend": false,
-      "favorit": false
-    },
-    {
-      "id": "8547a034-73b3-4f31-a338-416c961730a0",
-      "taskName": "dar um beijo na batata",
-      "checkend": false,
-      "favorit": false
-    },
-    {
-      "id": "22cae0ee-832e-469f-8da2-1301668917d1",
-      "taskName": "correr",
+      "id": "1ec5f280-3c5c-4bba-94b9-16885b0a0f19",
+      "taskName": "ir ao trabalho",
       "checkend": false,
       "favorit": false
     }

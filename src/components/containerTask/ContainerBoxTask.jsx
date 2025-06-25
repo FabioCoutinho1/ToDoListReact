@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import fetchTask from "../../api/fetch";
 import BoxTasks from "./BoxTasks";
 import BoxTasksDone from "./BoxTasksDone";
 import InputTasks from "./InputTasks";
@@ -8,8 +7,14 @@ import HeaderContainerTasks from "./HeaderContainerTasks";
 const ContainerBoxTask = () => {
   const [tasks, setTasks] = useState([]);
 
+  const fetchTask = async () => {
+    const res = await fetch("http://localhost:3000/tasks");
+    const data = await res.json();
+    setTasks(data);
+  };
+
   useEffect(() => {
-    fetchTask().then((res) => setTasks(res));
+    fetchTask();
   }, []);
 
   return (
@@ -17,7 +22,7 @@ const ContainerBoxTask = () => {
       <HeaderContainerTasks />
       <BoxTasks tasks={tasks} />
       <BoxTasksDone tasks={tasks} />
-      <InputTasks />
+      <InputTasks onTaskCreate={fetchTask} />
     </div>
   );
 };

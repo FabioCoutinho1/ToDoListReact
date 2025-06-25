@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MdAdd } from "react-icons/md";
-import postForTask from "../../api/postForTask";
 
-const InputTasks = () => {
-  const [inputValue, setInputValue] = useState({});
+const InputTasks = ({ onTaskCreate }) => {
+  const [task, setTask] = useState({});
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef();
 
   const handleChange = (e) => {
-    setInputValue({
-      ...inputValue,
+    setInputValue(e.target.value);
+
+    setTask({
+      ...task,
       id: crypto.randomUUID(),
       [e.target.name]: e.target.value.trim(),
       checkend: false,
@@ -15,14 +18,39 @@ const InputTasks = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!inputValue.taskName || !inputValue.taskName.trim()) {
+    if (!task.taskName || !task.taskName.trim()) {
       return alert("A tarefa precisa ter um nome");
     }
 
-    postForTask(inputValue);
+    try {
+      const res = await fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
+      });
+
+      if (!res.ok) {
+        throw new Error("Erro ao salvar a tarefa");
+      }
+
+      const data = await res.json();
+
+      onTaskCreate();
+
+      setInputValue("");
+      inputRef.current.focus();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -35,6 +63,8 @@ const InputTasks = () => {
         type="text"
         name="taskName"
         id="taskName"
+        ref={inputRef}
+        value={inputValue}
         placeholder="Adicionar tarefa"
         onChange={handleChange}
       />

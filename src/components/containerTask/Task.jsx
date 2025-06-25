@@ -1,14 +1,29 @@
-import React from "react";
+import { useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
 import {
   MdOutlineCircle,
   MdCheckCircle,
   MdOutlineStarPurple500,
 } from "react-icons/md";
 
-const Task = ({ taskName }) => {
+const Task = ({ taskName, id }) => {
+  const { setGetIdTask } = useContext(TaskContext);
+
+  const handleClick = () => {
+    setGetIdTask(id);
+  };
+
+  const checkTask = (e) => {
+    e.stopPropagation();
+    console.log(taskName + "esta feita");
+  };
+
   return (
-    <div className="bg-stone-800 text-white py-1.5 px-2 flex justify-between items-center gap-3.5">
-      <button>
+    <div
+      onClick={handleClick}
+      className="bg-stone-800 text-white cursor-pointer hover:bg-stone-700 py-1.5 px-2 flex justify-between items-center gap-3.5"
+    >
+      <button onClick={checkTask}>
         <MdOutlineCircle className="cursor-pointer text-2xl" />
       </button>
       <h3 className="flex-1 text-[18px] flex items-center">{taskName}</h3>
