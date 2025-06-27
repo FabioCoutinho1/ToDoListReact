@@ -33,13 +33,13 @@
     {
       "id": "6",
       "taskName": "organizar arquivos do computador",
-      "checkend": true,
+      "checkend": false,
       "favorit": false
     },
     {
       "id": "1ec5f280-3c5c-4bba-94b9-16885b0a0f19",
       "taskName": "ir ao trabalho",
-      "checkend": true,
+      "checkend": false,
       "favorit": false
     }
   ]

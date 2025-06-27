@@ -1,7 +1,7 @@
 import Task from "./Task";
 import { MdOutlineCircle } from "react-icons/md";
 
-const BoxTasks = ({ tasks}) => {
+const BoxTasks = ({ tasks }) => {
   const tasksNoDone = tasks.filter((task) => !task.checkend);
 
   return (
@@ -12,6 +12,7 @@ const BoxTasks = ({ tasks}) => {
           taskName={task.taskName}
           id={task.id}
           icon={MdOutlineCircle}
+          arrayTasks={tasks}
         />
       ))}
     </div>

@@ -8,17 +8,16 @@ import { useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
 
 const ContainerBoxTask = () => {
-  const { fetchTask } = useContext(TaskContext);
-  const [tasks, setTasks] = useState([]);
+  const {tasks, fetchTask } = useContext(TaskContext);
 
   useEffect(() => {
-    fetchTask().then((res) => setTasks(res));
+    fetchTask()
   }, []);
 
   return (
     <div className=" p-2 h-full flex flex-1 flex-col justify-between">
       <HeaderContainerTasks />
-      <BoxTasks tasks={tasks} onTaskCreate={fetchTask} />
+      <BoxTasks tasks={tasks} />
       <BoxTasksDone tasks={tasks} />
       <InputTasks onTaskCreate={fetchTask} />
     </div>
