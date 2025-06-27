@@ -4,23 +4,21 @@ import BoxTasksDone from "./BoxTasksDone";
 import InputTasks from "./InputTasks";
 import HeaderContainerTasks from "./HeaderContainerTasks";
 
+import { useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
+
 const ContainerBoxTask = () => {
+  const { fetchTask } = useContext(TaskContext);
   const [tasks, setTasks] = useState([]);
 
-  const fetchTask = async () => {
-    const res = await fetch("http://localhost:3000/tasks");
-    const data = await res.json();
-    setTasks(data);
-  };
-
   useEffect(() => {
-    fetchTask();
+    fetchTask().then((res) => setTasks(res));
   }, []);
 
   return (
     <div className=" p-2 h-full flex flex-1 flex-col justify-between">
       <HeaderContainerTasks />
-      <BoxTasks tasks={tasks} />
+      <BoxTasks tasks={tasks} onTaskCreate={fetchTask} />
       <BoxTasksDone tasks={tasks} />
       <InputTasks onTaskCreate={fetchTask} />
     </div>

@@ -9,7 +9,7 @@
     {
       "id": "2",
       "taskName": "estudar React",
-      "checkend": true,
+      "checkend": false,
       "favorit": true
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "4",
       "taskName": "caminhar 30 minutos",
-      "checkend": true,
+      "checkend": false,
       "favorit": false
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": "1ec5f280-3c5c-4bba-94b9-16885b0a0f19",
       "taskName": "ir ao trabalho",
-      "checkend": false,
+      "checkend": true,
       "favorit": false
     }
   ]

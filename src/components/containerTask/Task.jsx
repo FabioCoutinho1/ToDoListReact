@@ -1,21 +1,32 @@
 import { useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
-import {
-  MdOutlineCircle,
-  MdCheckCircle,
-  MdOutlineStarPurple500,
-} from "react-icons/md";
+import { MdOutlineStarPurple500 } from "react-icons/md";
 
-const Task = ({ taskName, id }) => {
+const Task = ({ taskName, id, icon: Icon, arrayTasks }) => {
   const { setGetIdTask } = useContext(TaskContext);
+  const { fetchTask } = useContext(TaskContext);
 
   const handleClick = () => {
     setGetIdTask(id);
   };
 
-  const checkTask = (e) => {
+  const checkTask = async (e) => {
     e.stopPropagation();
-    console.log(taskName + "esta feita");
+
+    const task = arrayTasks.find((element) => element.id === id);
+    console.log(task);
+    try {
+      const res = await fetch(`http://localhost:3000/tasks/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Contente-Type": "application/json",
+        },
+        body: JSON.stringify({ ...task, checkend: !task.checkend }),
+      });
+      fetchTask();
+    } catch (erro) {
+      console.error(erro);
+    }
   };
 
   return (
@@ -24,7 +35,7 @@ const Task = ({ taskName, id }) => {
       className="bg-stone-800 text-white cursor-pointer hover:bg-stone-700 py-1.5 px-2 flex justify-between items-center gap-3.5"
     >
       <button onClick={checkTask}>
-        <MdOutlineCircle className="cursor-pointer text-2xl" />
+        <Icon className="cursor-pointer text-2xl" />
       </button>
       <h3 className="flex-1 text-[18px] flex items-center">{taskName}</h3>
       <button>
