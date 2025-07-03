@@ -7,13 +7,7 @@ const BoxTasks = ({ tasks }) => {
   return (
     <div className="flex flex-col gap-1 mb-2 overflow-auto max-h-1/2">
       {tasksNoDone.map((task) => (
-        <Task
-          key={task.id}
-          taskName={task.taskName}
-          id={task.id}
-          icon={MdOutlineCircle}
-          arrayTasks={tasks}
-        />
+        <Task key={task.id} task={task} icon={MdOutlineCircle} />
       ))}
     </div>
   );

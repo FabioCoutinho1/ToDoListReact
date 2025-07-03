@@ -1,22 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
 import { MdAdd } from "react-icons/md";
 
-const InputTasks = ({ onTaskCreate }) => {
-  const [task, setTask] = useState({});
+const InputTasks = () => {
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef();
-
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-
-    setTask({
-      ...task,
-      id: crypto.randomUUID(),
-      [e.target.name]: e.target.value.trim(),
-      checkend: false,
-      favorit: false,
-    });
-  };
+  const { fetchTask, tasks } = useContext(TaskContext);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -25,9 +14,26 @@ const InputTasks = ({ onTaskCreate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!task.taskName || !task.taskName.trim()) {
+    const name = inputValue.trim();
+
+    const isDuplicated = tasks.some(
+      (task) => task.taskName.toLowerCase() === name.toLowerCase()
+    );
+
+    if (isDuplicated) {
+      return alert("Ja existe uma tarefa com esse nome");
+    }
+
+    if (!name || !name.trim()) {
       return alert("A tarefa precisa ter um nome");
     }
+
+    const newTask = {
+      id: crypto.randomUUID(),
+      taskName: name,
+      checkend: false,
+      favorit: false,
+    };
 
     try {
       const res = await fetch("http://localhost:3000/tasks", {
@@ -35,16 +41,13 @@ const InputTasks = ({ onTaskCreate }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(task),
+        body: JSON.stringify(newTask),
       });
 
       if (!res.ok) {
         throw new Error("Erro ao salvar a tarefa");
       }
-
-      const data = await res.json();
-
-      onTaskCreate();
+      fetchTask();
 
       setInputValue("");
       inputRef.current.focus();
@@ -66,7 +69,7 @@ const InputTasks = ({ onTaskCreate }) => {
         ref={inputRef}
         value={inputValue}
         placeholder="Adicionar tarefa"
-        onChange={handleChange}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <button className="cursor-pointer text-2xl px-1" type="submit">
         <MdAdd />

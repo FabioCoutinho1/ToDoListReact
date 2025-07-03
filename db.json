@@ -1,18 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "taskName": "fazer comida",
-      "checkend": false,
-      "favorit": false
-    },
-    {
-      "id": "2",
-      "taskName": "estudar React",
-      "checkend": false,
-      "favorit": true
-    },
-    {
       "id": "3",
       "taskName": "lavar a louça",
       "checkend": false,
@@ -21,24 +9,30 @@
     {
       "id": "4",
       "taskName": "caminhar 30 minutos",
-      "checkend": false,
+      "checkend": true,
       "favorit": false
     },
     {
       "id": "5",
       "taskName": "ler 10 páginas de um livro",
-      "checkend": false,
+      "checkend": true,
       "favorit": true
-    },
-    {
-      "id": "6",
-      "taskName": "organizar arquivos do computador",
-      "checkend": false,
-      "favorit": false
     },
     {
       "id": "1ec5f280-3c5c-4bba-94b9-16885b0a0f19",
       "taskName": "ir ao trabalho",
+      "checkend": true,
+      "favorit": false
+    },
+    {
+      "id": "4a76ecb7-e527-4b10-a21b-15d329b537d7",
+      "taskName": "terminar meu livro",
+      "checkend": false,
+      "favorit": false
+    },
+    {
+      "id": "0b2bbe29-c40e-4491-9c0a-b7913d6dc4cc",
+      "taskName": "jogar por 1hora",
       "checkend": false,
       "favorit": false
     }

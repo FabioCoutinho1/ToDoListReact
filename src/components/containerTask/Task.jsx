@@ -2,21 +2,21 @@ import { useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 
-const Task = ({ taskName, id, icon: Icon, arrayTasks }) => {
+const Task = ({ task, icon: Icon }) => {
   const { setGetIdTask } = useContext(TaskContext);
   const { fetchTask } = useContext(TaskContext);
 
   const handleClick = () => {
-    setGetIdTask(id);
+    setGetIdTask(task.id);
   };
 
   const checkTask = async (e) => {
     e.stopPropagation();
 
-    const task = arrayTasks.find((element) => element.id === id);
-    console.log(task);
+    // const task = arrayTasks.find((element) => element.id === id);
+    console.log();
     try {
-      const res = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const res = await fetch(`http://localhost:3000/tasks/${task.id}`, {
         method: "PATCH",
         headers: {
           "Contente-Type": "application/json",
@@ -37,7 +37,7 @@ const Task = ({ taskName, id, icon: Icon, arrayTasks }) => {
       <button onClick={checkTask}>
         <Icon className="cursor-pointer text-2xl" />
       </button>
-      <h3 className="flex-1 text-[18px] flex items-center">{taskName}</h3>
+      <h3 className="flex-1 text-[18px] flex items-center">{task.taskName}</h3>
       <button>
         <MdOutlineStarPurple500 className="cursor-pointer text-2xl text-gray-400" />
       </button>
