@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const TaskContext = createContext();
 
 const TaskProvider = ({ children }) => {
-  const [getIdTask, setGetIdTask] = useState(null);
+  const [getIdTask,setGetIdTask ] = useState(null);
   const [tasks, setTasks] = useState([]);
 
   const fetchTask = async () => {
