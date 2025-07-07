@@ -5,12 +5,12 @@ import EditFormMenuRigth from "./editFormMenuRigth";
 import { MdClose } from "react-icons/md";
 
 const RightMenu = () => {
-  const [toggleEdit, setToggleEditInput] = useState(true);
-  const { getIdTask, setGetIdTask, tasks } = useContext(TaskContext);
+  const { getIdTask, setGetIdTask, tasks, toggleEdit, setToggleEdit } =
+    useContext(TaskContext);
 
   const task = tasks.find((element) => element.id === getIdTask);
   const handleEdit = () => {
-    setToggleEditInput(false);
+    setToggleEdit(false);
   };
 
   const closeRightMenu = () => {
@@ -30,7 +30,7 @@ const RightMenu = () => {
       {toggleEdit ? (
         <ViwerMoreOpitoinsTasks task={task} handleEdit={handleEdit} />
       ) : (
-        <EditFormMenuRigth />
+        <EditFormMenuRigth task={task} toggleEdit={toggleEdit} />
       )}
     </aside>
   );

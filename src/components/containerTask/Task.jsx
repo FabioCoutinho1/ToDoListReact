@@ -4,29 +4,20 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 
 const Task = ({ task, icon: Icon }) => {
   const { setGetIdTask } = useContext(TaskContext);
-  const { fetchTask } = useContext(TaskContext);
+  const { fetchTask, upDateTaskField } = useContext(TaskContext);
+
+  const handleToggleCheck = async (e) => {
+    e.stopPropagation();
+    upDateTaskField("checkend", !task.checkend, task.id);
+  };
+
+  const handleToggleFavorit = (e) => {
+    e.stopPropagation();
+    upDateTaskField("favorit", !task.favorit, task.id);
+  };
 
   const handleClick = () => {
     setGetIdTask(task.id);
-  };
-
-  const checkTask = async (e) => {
-    e.stopPropagation();
-
-    // const task = arrayTasks.find((element) => element.id === id);
-    console.log();
-    try {
-      const res = await fetch(`http://localhost:3000/tasks/${task.id}`, {
-        method: "PATCH",
-        headers: {
-          "Contente-Type": "application/json",
-        },
-        body: JSON.stringify({ ...task, checkend: !task.checkend }),
-      });
-      fetchTask();
-    } catch (erro) {
-      console.error(erro);
-    }
   };
 
   return (
@@ -34,12 +25,16 @@ const Task = ({ task, icon: Icon }) => {
       onClick={handleClick}
       className="bg-stone-800 text-white cursor-pointer hover:bg-stone-700 py-1.5 px-2 flex justify-between items-center gap-3.5"
     >
-      <button onClick={checkTask}>
+      <button onClick={handleToggleCheck}>
         <Icon className="cursor-pointer text-2xl" />
       </button>
       <h3 className="flex-1 text-[18px] flex items-center">{task.taskName}</h3>
-      <button>
-        <MdOutlineStarPurple500 className="cursor-pointer text-2xl text-gray-400" />
+      <button onClick={handleToggleFavorit}>
+        <MdOutlineStarPurple500
+          className={`cursor-pointer text-2xl ${
+            task.favorit ? "text-amber-300" : "text-gray-400"
+          }`}
+        />
       </button>
     </div>
   );
