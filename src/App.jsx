@@ -4,7 +4,7 @@ import RightMenu from "./components/rightAsideMenu/RightMenu";
 
 function App() {
   return (
-    <main className="flex h-screen bg-cover bg-[url(/src/assets/background.jpg)]">
+    <main className="flex h-screen w-screen bg-cover bg-[url(/src/assets/background.jpg)] overflow-hidden]">
       <ContainerBoxTask />
       <RightMenu />
     </main>

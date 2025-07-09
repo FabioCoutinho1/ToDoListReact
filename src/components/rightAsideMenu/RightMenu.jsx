@@ -17,10 +17,14 @@ const RightMenu = () => {
     setGetIdTask(null);
   };
 
-  if (!getIdTask) return null;
-
   return (
-    <aside className="text-white flex flex-col bg-stone-900 p-2 min-w-2xs">
+    <aside
+      className={` 
+        fixed top-0 right-0 h-full w-screen flex flex-col text-white
+         bg-stone-900 transition-all duration-300   ${
+           getIdTask ? "translate-x-0 " : "translate-x-full  "
+         }`}
+    >
       <div className="flex justify-end p-2">
         <MdClose
           className="text-2xl font-bold cursor-pointer"

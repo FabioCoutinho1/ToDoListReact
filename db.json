@@ -35,18 +35,6 @@
       "taskName": "jogar por 1hora",
       "checkend": true,
       "favorit": false
-    },
-    {
-      "id": "769d5545-b9b2-4980-a877-8a7aaff45299",
-      "taskName": "jogar",
-      "checkend": true,
-      "favorit": false
-    },
-    {
-      "id": "038c903c-cbf2-414f-b916-0848169b40a8",
-      "taskName": "isso foi editado",
-      "checkend": false,
-      "favorit": false
     }
   ]
 }

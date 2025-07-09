@@ -15,7 +15,7 @@ const ContainerBoxTask = () => {
   }, []);
 
   return (
-    <div className=" p-2 h-full flex flex-1 flex-col justify-between">
+    <div className=" p-2 h-full flex flex-1 flex-col justify-between ">
       <HeaderContainerTasks />
       <BoxTasks tasks={tasks} />
       <BoxTasksDone tasks={tasks} />

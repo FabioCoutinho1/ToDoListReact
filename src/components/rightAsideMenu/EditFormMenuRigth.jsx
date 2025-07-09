@@ -4,7 +4,7 @@ import { TaskContext } from "../context/TaskContext";
 import Button from "../layouts/Button";
 
 const EditFormMenuRigth = ({ task }) => {
-  const { upDateTaskField, setToggleEdit } = useContext(TaskContext);
+  const { upDateTaskField, setToggleEdit, tasks } = useContext(TaskContext);
   const inputRef = useRef();
   const [inputValue, setInputValue] = useState(task.taskName);
 
@@ -16,9 +16,22 @@ const EditFormMenuRigth = ({ task }) => {
     e.preventDefault();
     const name = inputValue.trim();
 
+    const isDuplicated = tasks.some(
+      (task) => task.taskName.toLowerCase() === name.toLowerCase()
+    );
+
+    if (isDuplicated) {
+      return alert("Ja existe uma tarefa com esse nome");
+    }
+
+    if (!name || !name.trim()) {
+      return alert("A tarefa precisa ter um nome");
+    }
+
     if (inputValue == task.taskName) {
       return alert("o nome nao pode ser o mesmo");
     }
+
     upDateTaskField("taskName", name, task.id);
 
     setToggleEdit(true);
