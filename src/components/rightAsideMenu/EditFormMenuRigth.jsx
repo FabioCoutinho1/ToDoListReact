@@ -6,7 +6,7 @@ import Button from "../layouts/Button";
 const EditFormMenuRigth = ({ task }) => {
   const { upDateTaskField, setToggleEdit, tasks } = useContext(TaskContext);
   const inputRef = useRef();
-  const [inputValue, setInputValue] = useState(task.taskName);
+  const [inputValue, setInputValue] = useState(task.taskName || "");
 
   useEffect(() => {
     inputRef.current.focus();

@@ -6,6 +6,7 @@ import {
   MdOutlineEdit,
   MdCheckCircle,
   MdOutlineCircle,
+  MdClose,
 } from "react-icons/md";
 
 import Task from "../containerTask/Task";
@@ -32,8 +33,18 @@ const ViwerMoreOpitoinsTasks = ({ task, handleEdit }) => {
     }
   };
 
+  const closeRightMenu = () => {
+    setGetIdTask(null);
+  };
+
   return (
     <>
+      <div className="flex justify-end mb-4">
+        <MdClose
+          className="text-2xl font-bold cursor-pointer "
+          onClick={closeRightMenu}
+        />
+      </div>
       {task ? (
         <Task task={task} icon={getTaskIcon(task.checkend)} />
       ) : (

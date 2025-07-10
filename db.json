@@ -21,18 +21,36 @@
     {
       "id": "1ec5f280-3c5c-4bba-94b9-16885b0a0f19",
       "taskName": "ir ao trabalho",
-      "checkend": true,
+      "checkend": false,
       "favorit": false
     },
     {
       "id": "4a76ecb7-e527-4b10-a21b-15d329b537d7",
       "taskName": "terminar meu livro",
-      "checkend": true,
-      "favorit": false
+      "checkend": false,
+      "favorit": true
     },
     {
       "id": "0b2bbe29-c40e-4491-9c0a-b7913d6dc4cc",
       "taskName": "jogar por 1hora",
+      "checkend": true,
+      "favorit": false
+    },
+    {
+      "id": "e84610d7-81b8-48d9-b790-8df14c076952",
+      "taskName": "jogar",
+      "checkend": true,
+      "favorit": false
+    },
+    {
+      "id": "7a9d6f53-1978-4f84-9f87-0f81d541a3c8",
+      "taskName": "fazer jantar",
+      "checkend": true,
+      "favorit": false
+    },
+    {
+      "id": "a28f3195-7cb6-4593-a05a-30ffba7dc510",
+      "taskName": "fazer carinho na caramejo",
       "checkend": true,
       "favorit": false
     }

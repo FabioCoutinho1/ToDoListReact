@@ -6,6 +6,7 @@ const TaskProvider = ({ children }) => {
   const [getIdTask, setGetIdTask] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [toggleEdit, setToggleEdit] = useState(true);
+  const [toggleLeftMenu, setToggleLeftMenu] = useState(false);
 
   const fetchTask = async () => {
     const res = await fetch("http://localhost:3000/tasks");
@@ -38,6 +39,8 @@ const TaskProvider = ({ children }) => {
         upDateTaskField,
         toggleEdit,
         setToggleEdit,
+        toggleLeftMenu,
+        setToggleLeftMenu,
       }}
     >
       {children}
