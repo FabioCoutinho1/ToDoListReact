@@ -33,7 +33,7 @@
     {
       "id": "0b2bbe29-c40e-4491-9c0a-b7913d6dc4cc",
       "taskName": "jogar por 1hora",
-      "checkend": true,
+      "checkend": false,
       "favorit": false
     },
     {

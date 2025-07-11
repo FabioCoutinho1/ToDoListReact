@@ -4,7 +4,7 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 
 const Task = ({ task, icon: Icon }) => {
   const { setGetIdTask } = useContext(TaskContext);
-  const { fetchTask, upDateTaskField } = useContext(TaskContext);
+  const { upDateTaskField } = useContext(TaskContext);
 
   const handleToggleCheck = async (e) => {
     e.stopPropagation();

@@ -5,11 +5,16 @@ import FormSearch from "./FormSearch";
 import MoreOpitions from "../layouts/MoreOpitions";
 
 const LeftMenu = () => {
-  const { toggleLeftMenu, setToggleLeftMenu } = useContext(TaskContext);
+  const { toggleLeftMenu, setToggleLeftMenu, setShowPageFavorite } = useContext(TaskContext);
 
   const closLeftMenu = () => {
     setToggleLeftMenu(false);
   };
+
+  const showFavorites = () => {
+    setShowPageFavorite(true)
+  };
+
   return (
     <>
       <aside
@@ -28,31 +33,7 @@ const LeftMenu = () => {
             icon={MdStarOutline}
             opitionName={"Favoritas"}
             colorIcon="text-pink-400"
-          />
-          <MoreOpitions
-            icon={MdStarOutline}
-            opitionName={"Favoritas"}
-            colorIcon="text-pink-400"
-          />
-          <MoreOpitions
-            icon={MdStarOutline}
-            opitionName={"Favoritas"}
-            colorIcon="text-pink-400"
-          />
-          <MoreOpitions
-            icon={MdStarOutline}
-            opitionName={"Favoritas"}
-            colorIcon="text-pink-400"
-          />
-          <MoreOpitions
-            icon={MdStarOutline}
-            opitionName={"Favoritas"}
-            colorIcon="text-pink-400"
-          />
-          <MoreOpitions
-            icon={MdStarOutline}
-            opitionName={"Favoritas"}
-            colorIcon="text-pink-400"
+            onClick={showFavorites}
           />
         </div>
       </aside>
